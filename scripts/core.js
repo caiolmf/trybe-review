@@ -5,12 +5,15 @@ const getUserdata = (form) => {
     slackUser: form.elements[1].value,
     pullLink: form.elements[2].value,
   };
+
+  return user;
 };
 
 window.onload = () => {
   const newUserForm = document.querySelector('#new-user-form');
   newUserForm.addEventListener('submit', (e) => {
     e.preventDefault();
-    getUserdata(newUserForm);
+
+    const user = getUserdata(newUserForm);
   });
 };
