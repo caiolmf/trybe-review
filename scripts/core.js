@@ -1,4 +1,9 @@
-const databaseName = 'users-project09';
+// In use databases
+// Users database
+const usersDatabase = 'users-project09';
+// Draw database
+const drawDatabase = 'draw-project09';
+
 // Firestore CRUD
 const create = async (user, database) => {
   const firestore = firebase.firestore();
@@ -18,7 +23,7 @@ const createUser = async (form) => {
     pullLink: form.elements[2].value,
   };
   // Store user data on firebase
-  const result = await create(user, databaseName);
+  const result = await create(user, usersDatabase);
   // IF ok show sucess msg else show try again msg
   if (result) {
     alert('ok');
