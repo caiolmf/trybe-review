@@ -14,6 +14,8 @@ window.onload = () => {
   newUserForm.addEventListener('submit', (e) => {
     e.preventDefault();
 
+    // Get user data
     const user = getUserdata(newUserForm);
+    // Store user data on firebase
   });
 };
