@@ -9,10 +9,11 @@ This tool aims to manage the **code-review** of Trybe students in **end-block pr
 	- [ ] Name register
 	- [ ] Slack username register
 	- [ ] Github PR Link
+	- [ ] Save to firestore
 - [ ] **Code-review Draw**
 	- [ ] Draw PR links among students
-    - [ ] Save result in JSON
-	- [ ] Show **user/PR link** list 
+    	- [ ] Save result on firestore
+	- [ ] Show **user/PR link** list from firestore
 - [ ] **Slack integration**
 	- [ ] Connect to Slack API
 	- [ ] Send user private message 
