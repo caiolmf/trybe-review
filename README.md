@@ -11,6 +11,7 @@ This tool aims to manage the **code-review** of Trybe students in **end-block pr
 	- [ ] Github PR Link
 - [ ] **Code-review Draw**
 	- [ ] Draw PR links among students
+    - [ ] Save result in JSON
 	- [ ] Show **user/PR link** list 
 - [ ] **Slack integration**
 	- [ ] Connect to Slack API
