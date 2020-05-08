@@ -13,7 +13,29 @@
 
 <body>
     <header></header>
-    <section class="main-container"></section>
+    <section class="main-container">
+        <!-- User login container -->
+        <div class="user-login">
+            <!-- User login form -->
+            <form action="#" id="new-user-form">
+                <label for="name">
+                    Name
+                    <input type="text" id="name" required>
+                </label>
+                <label for="slack-username">
+                    Slack Username
+                    <input type="text" id="slack-username" required>
+                </label>
+                <label for="pull-link">
+                    Pull Request Link
+                    <input type="url" id="pull-link" required>
+                </label>
+                <button id="join-btn">
+                    Join Code-review!
+                </button>
+            </form>
+        </div>
+    </section>
     <footer></footer>
 
     <!-- Firebase integration -->
