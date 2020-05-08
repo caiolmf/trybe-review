@@ -23,4 +23,7 @@ This tool aims to manage the **code-review** of Trybe students in **end-block pr
 	- [ ] GitHub reminders
 
 ## Guidelines
+- For new features use **feature/** on branch name
+- For bug corrections use **issue/** on branch name
+- To report a bug use GitHub **New Issue** tool on **Issues** tab
 - Commits and PR's in english - Good opportunity to study English, here you can go wrong lol
