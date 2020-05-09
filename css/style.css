@@ -77,7 +77,7 @@ input:focus::placeholder , select:focus::placeholder {
 
 header {
   align-items: center;
-  background-color: rgb(35, 35, 35);
+  background-color: #232323;
   display: flex;
   flex-flow: column;
   height: 80px;
@@ -259,32 +259,33 @@ label {
   bottom: 0;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.22), 0 14px 56px rgba(0, 0, 0, 0.25);
   box-sizing: border-box;
-  padding: 8px 24px 16px;
+  padding: 25px 8px 24px 16px;
   position: fixed;
   transform: translate(0, 100%);
   transition: all 450ms cubic-bezier(0.32, 1, 0.23, 1) 100ms;
   width: 100%;
 }
 
-.overlay .btn-close {
+.overlay .sheet-close {
   color: #666;
   transform: scale(0, 0);
   transition: all 450ms ease-in-out 0;
 }
 
-.overlay:target {
+.overlay.is-active {
   display: block;
   opacity: 1;
   position: fixed;
   top: 0;
+  z-index: 8;
 }
 
-.overlay:target .menu {
+.overlay .menu.is-active {
   transform: translate(0, 0);
   z-index: 9;
 }
 
-.overlay:target .btn-close {
+.overlay .sheet-close.is-active {
   bottom: 0;
   display: block;
   left: 0;
