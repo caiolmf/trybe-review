@@ -39,7 +39,8 @@ const putUserOnLinst = (user) => {
   tryberName.textContent = user.name;
   tryberElement.appendChild(tryberName);
 
-  document.querySelector('.trybers-list').appendChild(tryberElement);
+  const trybersList = document.querySelector('.trybers-list');
+  trybersList.insertBefore(tryberElement, trybersList.firstChild);
 };
 
 const createUser = async (form) => {
