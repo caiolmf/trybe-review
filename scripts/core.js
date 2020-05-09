@@ -37,11 +37,16 @@ const createUser = async (form) => {
     slackUser: form.elements[1].value,
     pullLink: form.elements[2].value,
   };
-  // Store user data on firebase
+  // Store user data on firebase and wait the result
   const result = await create(user, usersDatabase);
   // If ok show sucess msg else show try again msg
   if (result) {
-    document.querySelector('#new-user-form').hidden = true;
+    // Disable the join button on home page
+    document.querySelector('.join-button').classList.add('hidden');
+    document.querySelector('.user-login').classList.add('hidden');
+    // Show successes msg
+    document.querySelector('.success-msg').classList.remove('hidden');
+    document.querySelector('.success-msg img').classList.add('positive-img-animation');
   }
 };
 
