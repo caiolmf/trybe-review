@@ -7,36 +7,101 @@
     <title>Trybe Review</title>
 
     <link rel="stylesheet" href="./css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;800&display=swap" rel="stylesheet">
 
     <script src="./scripts/core.js"></script>
 </head>
 
 <body>
-    <header></header>
-    <section class="main-container">
+    <header>
+        <div class="logo">
+            <span class="logo-text">(</span>
+            <div class="trybe-logo"></div>
+            <span class="logo-text">)</span>
+            <div class="logo-text"> => { <span>Review</span> }</div>
+        </div>
+    </header>
+    <div class="main-container">
+        <section>
+            <div class="project-details">
+                <div class="project-card z-depth-2">
+                    <img src="./imgs/project-plan.png" alt="Project planning logo">
+                    <div class="title-container">
+                        <div class="project-title">
+                            Block 09 <span>Project</span>
+                        </div>
+                        <div class="project-subtitle">
+                            Project Loren Ipsum
+                        </div>
+                        <div class="project-due-date">
+                            Deadline: <span>02 mai 2020</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section>
+            <h2 class="section-title">Proximo Round</h2>
+            <div class="section-info">
+                <img src="./imgs/file.svg" alt="Rating icon">
+                <div>
+                    <p>
+                        Proximo match de code-review
+                    </p>
+                    <div class="date">12 maio 2020</div>
+                    <p>
+                        Limite para incrição
+                    </p>
+                    <div class="date">02 maio 2020</div>
+                </div>
+            </div>
+            <button class="join-button"><a href="#bottom-sheet">Entrar</a></button>
+        </section>
+        <section>
+            <h2 class="section-title">Trybers no review</h2>
+            <div class="section-info">
+                <img src="./imgs/feedback.png" alt="Rating icon">
+                <p>
+                    Estes Trybers ja estão no proximo round de code-review <strong>#VqV !</strong>
+                </p>
+            </div>
+            <div class="trybers-list">
+                <div class="tryber">
+                    Caio Magalhães
+                </div>
+            </div>
+        </section>
         <!-- User login container -->
-        <div class="user-login">
+        <div class="user-login" hidden>
             <!-- User login form -->
             <form action="#" id="new-user-form">
-                <label for="name">
-                    Name
-                    <input type="text" id="name" required>
-                </label>
-                <label for="slack-username">
-                    Slack Username
-                    <input type="text" id="slack-username" required>
-                </label>
-                <label for="pull-link">
-                    Pull Request Link
-                    <input type="url" id="pull-link" required>
-                </label>
+                <input type="text" id="name" placeholder="Name" required>
+                <input type="text" id="slack-username" placeholder="Slack User" required>
+                <input type="url" id="pull-link" placeholder="Pull Request" required>
                 <button id="join-btn">
-                    Join Code-review!
+                    Join This Code-review
                 </button>
             </form>
         </div>
-    </section>
-    <footer></footer>
+    </div>
+    
+    <div id="bottom-sheet" class="overlay">
+        <aside class="menu" tabindex="-1" role="dialog">
+            <!-- User login container -->
+            <div class="user-login">
+                <!-- User login form -->
+                <form action="#" id="new-user-form">
+                    <input type="text" id="name" placeholder="Name" required>
+                    <input type="text" id="slack-username" placeholder="Slack User" required>
+                    <input type="url" id="pull-link" placeholder="Pull Request" required>
+                    <button id="join-btn">
+                        Join Code-review!
+                    </button>
+                </form>
+            </div>                   
+        </aside>
+        <a href="#close" class="btn-close" aria-hidden="true"><span class="mdi mdi-close"></span><span class="sr-only">Close</span></a>
+    </div>
 
     <!-- Firebase integration -->
     <!-- The core Firebase JS SDK is always required and must be listed first -->
@@ -47,7 +112,7 @@
     <script src="https://www.gstatic.com/firebasejs/7.14.3/firebase-analytics.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-firestore.js"></script>
-    
+
     <!-- Initialize Firebase -->
     <script src="./scripts/firebase/init.js"></script>
 </body>

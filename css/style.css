@@ -1,0 +1,306 @@
+* {
+  box-sizing: content-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: rgba(32, 33, 36, 0.97);
+  color: white;
+  font-family: Open Sans, sans-serif;
+}
+
+.z-depth-2 {
+  box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12),
+    0 2px 4px -1px rgba(0, 0, 0, 0.3);
+}
+
+.z-depth-3 {
+  box-shadow: 0 8px 17px 2px rgba(0, 0, 0, 0.14),
+    0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.2);
+}
+
+.z-depth-4 {
+  box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14),
+    0 6px 30px 5px rgba(0, 0, 0, 0.12), 0 8px 10px -7px rgba(0, 0, 0, 0.2);
+}
+
+button {
+  background-color: #0c5511;
+  border: 0;
+  border-radius: 8px;
+  border-style: none;
+  box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14),
+    0 1px 5px 0 rgba(0, 0, 0, 0.12);
+  color: white;
+  font-family: Open Sans, sans-serif;
+  font-size: 20px;
+  font-weight: 800;
+  padding: 8px 20px;
+}
+
+button:focus , button:hover {
+  box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.14),
+    0 1px 10px 0 rgba(0, 0, 0, 0.12);
+  outline: 0;
+}
+
+button:active {
+  box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2), 0 8px 10px 1px rgba(0, 0, 0, 0.14),
+    0 3px 14px 2px rgba(0, 0, 0, 0.12);
+}
+
+input , select {
+  background-color: rgb(241, 241, 241);
+  border: 1px solid rgb(202, 202, 202);
+  border-radius: 8px;
+  font-size: 20px;
+  font-weight: 800;
+  padding: 10px;
+  transition: background-color 0.3s ease-in;
+  margin-bottom: 10px;
+}
+
+input:hover , select:hover {
+  background-color: rgb(249, 249, 249);
+}
+
+input:focus , select:focus {
+  background-color: #006a64;
+  color: white;
+  outline: none;
+}
+
+input:focus::placeholder , select:focus::placeholder {
+  color: #006a64;
+}
+
+header {
+  align-items: center;
+  background-color: rgb(35, 35, 35);
+  display: flex;
+  flex-flow: column;
+  height: 80px;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+header .logo {
+  align-content: center;
+  align-items: center;
+  display: flex;
+  height: 100%;
+  justify-content: center;
+}
+
+.logo .trybe-logo {
+  background-image: url('../imgs/trybe-logo.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 30px;
+  margin: 0 5px;
+  width: 120px;
+}
+
+.logo .logo-text {
+  align-items: center;
+  display: flex;
+  font-size: 1.7em;
+  font-weight: 800;
+  height: 40px;
+  justify-content: center;
+  line-height: 40px;
+}
+
+.logo > span {
+  margin: 0 5px;
+}
+
+.logo-text > span {
+  font-weight: 300;
+  margin: 0 10px;
+}
+
+.main-container {
+  margin-top: 100px;
+}
+
+section {
+  display: flex;
+  flex-flow: column;
+  padding: 0 20px;
+}
+
+section .join-button {
+  align-self: flex-end;
+  margin: 10px 0;
+  width: 100px;
+}
+
+section .join-button > a {
+  color: white;
+  text-decoration: none;
+}
+
+.section-title {
+  font-size: 2em;
+  font-weight: 800;
+  margin: 15px 0;
+}
+
+.section-info {
+  display: flex;
+  flex-flow: row;
+  font-size: 1.2em;
+}
+
+.section-info > img {
+  height: 70px;
+  margin-right: 20px;
+  width: 70px;
+}
+
+.section-info .date {
+  background-color: rgba(32, 33, 36, 0.97);
+  border-radius: 10px;
+  font-weight: 800;
+  margin: 10px 0;
+  padding: 10px;
+  text-align: center;
+}
+
+.project-details .project-card {
+  background-color: #006a64;
+  border-radius: 10px;
+  display: flex;
+  flex-flow: row;
+  padding: 20px 0;
+  position: relative;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0, 1);
+  width: 100%;
+}
+
+.project-card > img {
+  height: 120px;
+  width: 100px;
+}
+
+.project-card .title-container {
+  align-items: flex-end;
+  display: flex;
+  flex-flow: column;
+  flex: 1;
+  padding: 0 15px;
+}
+
+.project-card .title-container > div {
+  text-align: center;
+  width: 100%;
+}
+
+.title-container .project-title {
+  font-size: 1.7em;
+  font-weight: 800;
+}
+
+.title-container .project-title > span {
+  font-weight: 100;
+}
+
+.title-container .project-subtitle {
+  font-size: 1.2em;
+  font-weight: 100;
+  margin-bottom: 30px;
+}
+
+.title-container .project-due-date {
+  font-size: 1.2em;
+  font-weight: 800;
+}
+
+.title-container .project-due-date > span {
+  font-weight: 100;
+}
+
+form {
+  display: flex;
+  flex-flow: column;
+}
+
+label {
+  display: flex;
+  flex-flow: column;
+}
+
+.trybers-list .tryber {
+  background-color: rgba(32, 33, 36, 0.97);
+  border-radius: 10px;
+  margin: 10px 0;
+  padding: 10px;
+  text-align: center;
+}
+
+.overlay {
+  background-color: rgba(0, 0, 0, 0.85);
+  bottom: 0;
+  left: 0;
+  opacity: 0;
+  position: absolute;
+  right: 0;
+  transition: all 450ms cubic-bezier(0.32, 1, 0.23, 1) 0ms;
+}
+
+.overlay .menu {
+  background-color: whitesmoke;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  bottom: 0;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.22), 0 14px 56px rgba(0, 0, 0, 0.25);
+  box-sizing: border-box;
+  padding: 8px 24px 16px;
+  position: fixed;
+  transform: translate(0, 100%);
+  transition: all 450ms cubic-bezier(0.32, 1, 0.23, 1) 100ms;
+  width: 100%;
+}
+
+.overlay .btn-close {
+  color: #666;
+  transform: scale(0, 0);
+  transition: all 450ms ease-in-out 0;
+}
+
+.overlay:target {
+  display: block;
+  opacity: 1;
+  position: fixed;
+  top: 0;
+}
+
+.overlay:target .menu {
+  transform: translate(0, 0);
+  z-index: 9;
+}
+
+.overlay:target .btn-close {
+  bottom: 0;
+  display: block;
+  left: 0;
+  outline: 0 none;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transform: scale(1, 1);
+}
+
+.sr-only {
+
+  /* hide content while remaining accessible to screen readers */
+  clip: rect(0 0 0 0);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  width: 1px;
+}
