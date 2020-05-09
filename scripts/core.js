@@ -16,17 +16,17 @@ const create = async (user, database) => {
 };
 
 const showBottonSheet = () => {
-  const overlay = document.querySelector('.overlay');
-  const sheet = overlay.querySelector('.menu');
-  const sheetClose = overlay.querySelector('.sheet-close');
-  // Active the botton sheet and its overlay
-  overlay.classList.add('is-active');
-  sheet.classList.add('is-active');
-  sheetClose.classList.add('is-active');
+  const sheetElements = document.querySelectorAll('.botton-sheet');
+  const sheetClose = document.querySelector('.sheet-close');
+  // Active the botton sheet and its overlays
+  sheetElements.forEach((element) => {
+    element.classList.add('is-active');
+  });
   // Create a event on the overlay to close the botton sheet
   sheetClose.addEventListener('click', () => {
-    overlay.classList.remove('is-active');
-    sheet.classList.remove('is-active');
+    sheetElements.forEach((element) => {
+      element.classList.remove('is-active');
+    });
   });
 };
 
