@@ -318,7 +318,11 @@ label {
 }
 
 .positive-img-animation {
-  animation: positive-img 500ms ease-out forwards;
+  animation-name: positive-img;
+  animation-duration: 500ms;
+  animation-timing-function: cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  animation-fill-mode: forwards;
+  animation-delay: 600ms;
 }
 
 @keyframes positive-img {

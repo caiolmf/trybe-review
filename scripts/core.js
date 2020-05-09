@@ -5,10 +5,10 @@ const usersDatabase = 'users-project09';
 const drawDatabase = 'draw-project09';
 
 // Firestore CRUD
-const create = async (user, database) => {
+const create = async (data, database) => {
   // const firestore = firebase.firestore();
   // const result = await firestore.collection(database) // Select firestore document
-  //   .add(user) // Store user data on document
+  //   .add(data) // Store user data on document
   //   .then((docRef) => docRef.id) // Return document id if ok
   //   .catch(() => false); // Return false on store error
 
@@ -30,6 +30,18 @@ const showBottonSheet = () => {
   });
 };
 
+const putUserOnLinst = (user) => {
+  const tryberElement = document.createElement('div');
+  tryberElement.classList.add('tryber');
+  const tryberName = document.createElement('div');
+  tryberName.classList.add('tryber-name');
+
+  tryberName.textContent = user.name;
+  tryberElement.appendChild(tryberName);
+
+  document.querySelector('.trybers-list').appendChild(tryberElement);
+};
+
 const createUser = async (form) => {
   // Get user data from sign in form
   const user = {
@@ -47,6 +59,8 @@ const createUser = async (form) => {
     // Show successes msg
     document.querySelector('.success-msg').classList.remove('hidden');
     document.querySelector('.success-msg img').classList.add('positive-img-animation');
+    // Put user on homepage list
+    putUserOnLinst(user);
   }
 };
 
