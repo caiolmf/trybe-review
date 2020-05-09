@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#232323">
     <title>Trybe Review</title>
 
     <link rel="stylesheet" href="./css/style.css">
@@ -55,7 +56,7 @@
                     <div class="date">02 maio 2020</div>
                 </div>
             </div>
-            <button class="join-button"><a href="#bottom-sheet">Entrar</a></button>
+            <button class="join-button">Entrar</button>
         </section>
         <section>
             <h2 class="section-title">Trybers no review</h2>
@@ -71,36 +72,33 @@
                 </div>
             </div>
         </section>
-        <!-- User login container -->
-        <div class="user-login" hidden>
-            <!-- User login form -->
-            <form action="#" id="new-user-form">
-                <input type="text" id="name" placeholder="Name" required>
-                <input type="text" id="slack-username" placeholder="Slack User" required>
-                <input type="url" id="pull-link" placeholder="Pull Request" required>
-                <button id="join-btn">
-                    Join This Code-review
-                </button>
-            </form>
-        </div>
     </div>
-    
-    <div id="bottom-sheet" class="overlay">
-        <aside class="menu" tabindex="-1" role="dialog">
-            <!-- User login container -->
+    <footer></footer>
+    <div class="botton-sheet overlay">
+        <aside class="botton-sheet menu" tabindex="-1" role="dialog">
+            <!-- User login container - initial state visible -->
             <div class="user-login">
                 <!-- User login form -->
                 <form action="#" id="new-user-form">
                     <input type="text" id="name" placeholder="Name" required>
                     <input type="text" id="slack-username" placeholder="Slack User" required>
                     <input type="url" id="pull-link" placeholder="Pull Request" required>
-                    <button id="join-btn">
+                    <button id="confirm-btn">
                         Join Code-review!
                     </button>
                 </form>
-            </div>                   
+            </div>
+            <!-- Success msg - initial state hidden -->
+            <div class="success-msg hidden">
+                <img src="./imgs/positive.png" class="positive-img" alt="positive image">
+                <p>
+                    <strong>Tudo ok!</strong>
+                    <br>
+                    Bem-vindo a este code-review
+                </p>
+            </div>                  
         </aside>
-        <a href="#close" class="btn-close" aria-hidden="true"><span class="mdi mdi-close"></span><span class="sr-only">Close</span></a>
+        <div class="botton-sheet sheet-close"></div>
     </div>
 
     <!-- Firebase integration -->
