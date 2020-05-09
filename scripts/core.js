@@ -6,13 +6,13 @@ const drawDatabase = 'draw-project09';
 
 // Firestore CRUD
 const create = async (user, database) => {
-  const firestore = firebase.firestore();
-  const result = await firestore.collection(database) // Select firestore document
-    .add(user) // Store user data on document
-    .then((docRef) => docRef.id) // Return document id if ok
-    .catch(() => false); // Return false on store error
+  // const firestore = firebase.firestore();
+  // const result = await firestore.collection(database) // Select firestore document
+  //   .add(user) // Store user data on document
+  //   .then((docRef) => docRef.id) // Return document id if ok
+  //   .catch(() => false); // Return false on store error
 
-  return result;
+  return true;
 };
 
 const createUser = async (form) => {
@@ -26,7 +26,7 @@ const createUser = async (form) => {
   const result = await create(user, usersDatabase);
   // IF ok show sucess msg else show try again msg
   if (result) {
-    alert('ok');
+    document.querySelector('#new-user-form').hidden = true;
   }
 };
 
