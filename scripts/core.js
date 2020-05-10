@@ -1,10 +1,51 @@
 // In use databases
 // Users database
-const usersDatabase = 'users-project09';
+let actualProject;
 // Draw database
-const drawDatabase = 'draw-project09';
 
-// Firestore CRUD
+
+// Firestore functions
+const setAppSettings = async () => {
+  const firestore = firebase.firestore();
+
+  const result = await firestore.collection('core-settings')
+    .get()
+    .then((querySnapshot) => {
+      querySnapshot.forEach((doc) => {
+        // doc.data() is never undefined for query doc snapshots
+        // Define global const usersDatabase;
+        actualProject = doc.data()['actual-project'];
+      });
+    })
+    .catch((error) => {
+      alert('Error getting documents: ', error);
+    });
+
+  if (actualProject) {
+    return true;
+  }
+
+  return false;
+};
+
+const getReviewUsers = async () => {
+  const users = [];
+  const firestore = firebase.firestore();
+  const usersRef = firestore.collection('review-users').doc(actualProject).collection('users');
+  const result = await usersRef.get()
+    .then((querySnapshot) => {
+      querySnapshot.forEach((doc) => {
+        users.push(doc.data());
+      });
+    })
+    .catch((error) => {
+      alert('Error getting documents, report to devs: ', error);
+    });
+  if (users.length > 0) {
+    return users;
+  }
+};
+
 const create = async (data, database) => {
   // const firestore = firebase.firestore();
   // const result = await firestore.collection(database) // Select firestore document
@@ -14,6 +55,7 @@ const create = async (data, database) => {
 
   return true;
 };
+// End of
 
 const showBottonSheet = () => {
   const sheetElements = document.querySelectorAll('.botton-sheet');
@@ -65,9 +107,24 @@ const createUser = async (form) => {
   }
 };
 
+const initApp = async () => {
+  const appSettings = await setAppSettings();
+
+  if (appSettings) {
+    getReviewUsers()
+      .then((users) => {
+        users.forEach((user) => {
+          putUserOnLinst(user);
+        });
+      });
+  }
+};
+
 window.onload = () => {
   const joinBtn = document.querySelector('.join-button');
   const newUserForm = document.querySelector('#new-user-form');
+
+  initApp();
 
   joinBtn.addEventListener('click', () => {
     showBottonSheet();
