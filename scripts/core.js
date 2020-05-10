@@ -127,12 +127,14 @@ const createUser = async (form) => {
 };
 
 const initApp = async () => {
+  // Get app settings on app start
   const appSettings = await setAppSettings();
-
+  // If settings seted get users
   if (appSettings) {
     getReviewUsers()
       .then((users) => {
         users.forEach((user) => {
+          // For each user found put user o homepage list
           putUserOnLinst(user);
         });
       });
