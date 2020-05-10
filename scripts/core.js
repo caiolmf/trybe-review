@@ -1,14 +1,14 @@
-// In use databases
-// Users database
+// Project database
 let actualProject;
-// Draw database
+// project properties
+let project;
 
 
 // Firestore functions
 const setAppSettings = async () => {
   const firestore = firebase.firestore();
 
-  const result = await firestore.collection('core-settings')
+  const settings = await firestore.collection('core-settings')
     .get()
     .then((querySnapshot) => {
       querySnapshot.forEach((doc) => {
@@ -20,8 +20,25 @@ const setAppSettings = async () => {
     .catch((error) => {
       alert('Error getting documents: ', error);
     });
-
+    // Check if settings are applied
   if (actualProject) {
+    // Get project informations
+    const projectRef = firestore.collection('review-users');
+    projectRef.get()
+      .then((querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+          if (doc.id === actualProject) {
+            project = {
+              'project-detail': doc.data()['project-detail'],
+              'project-end': doc.data()['project-end'],
+              'project-name': doc.data()['project-name'],
+              'review-match-date': doc.data()['review-match-date'],
+              'review-subscription-end': doc.data()['review-subscription-end'],
+            };
+          }
+          console.log(project);
+        });
+      });
     return true;
   }
 
