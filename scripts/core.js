@@ -46,12 +46,12 @@ const getReviewUsers = async () => {
   }
 };
 
-const create = async (data, database) => {
-  // const firestore = firebase.firestore();
-  // const result = await firestore.collection(database) // Select firestore document
-  //   .add(data) // Store user data on document
-  //   .then((docRef) => docRef.id) // Return document id if ok
-  //   .catch(() => false); // Return false on store error
+const storeUser = async (data) => {
+  const firestore = firebase.firestore();
+  const usersRef = firestore.collection('review-users').doc(actualProject).collection('users');
+  await usersRef.add(data) // Store user data on document
+    .then((docRef) => docRef.id) // Return document id if ok
+    .catch(() => false); // Return false on store error
 
   return true;
 };
@@ -86,6 +86,8 @@ const putUserOnLinst = (user) => {
 };
 
 const createUser = async (form) => {
+  // Disable confirm-btn button
+  document.querySelector('#confirm-btn').disabled = true;
   // Get user data from sign in form
   const user = {
     name: form.elements[0].value,
@@ -93,7 +95,7 @@ const createUser = async (form) => {
     pullLink: form.elements[2].value,
   };
   // Store user data on firebase and wait the result
-  const result = await create(user, usersDatabase);
+  const result = await storeUser(user);
   // If ok show sucess msg else show try again msg
   if (result) {
     // Disable the join button on home page
