@@ -5,9 +5,10 @@
 }
 
 body {
-  background-color: rgba(32, 33, 36, 0.97);
+  background-color: rgba(39, 40, 43, 0.97);
   color: white;
   font-family: Open Sans, sans-serif;
+  font-size: 15px;
 }
 
 .z-depth-2 {
@@ -27,9 +28,9 @@ body {
 
 
 button {
-  background-color: #0c5511;
+  background-color: #4CAF50;
   border: 0;
-  border-radius: 8px;
+  border-radius: 25px;
   border-style: none;
   box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14),
     0 1px 5px 0 rgba(0, 0, 0, 0.12);
@@ -86,6 +87,7 @@ header {
   position: fixed;
   top: 0;
   width: 100%;
+  z-index: 7;
 }
 
 header .logo {
@@ -146,7 +148,7 @@ section .join-button > a {
 }
 
 .section-title {
-  font-size: 2em;
+  font-size: 1.6em;
   font-weight: 800;
   margin: 15px 0;
 }
@@ -155,6 +157,7 @@ section .join-button > a {
   display: flex;
   flex-flow: row;
   font-size: 1.2em;
+  margin-bottom: 15px;
 }
 
 .section-info > img {
@@ -170,6 +173,10 @@ section .join-button > a {
   margin: 10px 0;
   padding: 10px;
   text-align: center;
+}
+
+.project-details {
+  margin-bottom: 15px;
 }
 
 .project-details .project-card {
@@ -202,7 +209,7 @@ section .join-button > a {
 }
 
 .title-container .project-title {
-  font-size: 1.7em;
+  font-size: 1.6em;
   font-weight: 800;
 }
 
@@ -211,17 +218,17 @@ section .join-button > a {
 }
 
 .title-container .project-subtitle {
-  font-size: 1.2em;
+  font-size: 1.1em;
   font-weight: 100;
   margin-bottom: 30px;
 }
 
-.title-container .project-due-date {
+.title-container .project-dealine {
   font-size: 1.2em;
   font-weight: 800;
 }
 
-.title-container .project-due-date > span {
+.title-container .project-dealine > span {
   font-weight: 100;
 }
 
@@ -235,12 +242,37 @@ label {
   flex-flow: column;
 }
 
+.trybers-list {
+  display: flex;
+  flex-flow: column;
+}
+
 .trybers-list .tryber {
   background-color: rgba(32, 33, 36, 0.97);
   border-radius: 10px;
   margin: 10px 0;
-  padding: 10px;
-  text-align: center;
+  padding: 10px 15px;
+  display: flex;
+  align-items: center;
+}
+
+.tryber .tryber-name {
+  float: left;
+  font-size: 1.5em;
+  flex: 1;
+  text-align: left;
+}
+
+.tryber .pull-link-btn {
+  font-size: 10px;
+  padding: 5px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.tryber .pull-link-btn > img {
+  width: 24px;
 }
 
 .overlay {
@@ -318,7 +350,11 @@ label {
 }
 
 .positive-img-animation {
-  animation: positive-img 500ms ease-out forwards;
+  animation-name: positive-img;
+  animation-duration: 500ms;
+  animation-timing-function: cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  animation-fill-mode: forwards;
+  animation-delay: 600ms;
 }
 
 @keyframes positive-img {
@@ -330,6 +366,11 @@ label {
   to {
     transform: rotate(0deg);
   }
+}
+
+footer {
+  width: 100%;
+  height: 80px;
 }
 
 .hidden {

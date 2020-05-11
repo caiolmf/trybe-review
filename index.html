@@ -28,15 +28,9 @@
                 <div class="project-card z-depth-2">
                     <img src="./imgs/project-plan.png" alt="Project planning logo">
                     <div class="title-container">
-                        <div class="project-title">
-                            Block 09 <span>Project</span>
-                        </div>
-                        <div class="project-subtitle">
-                            Project Loren Ipsum
-                        </div>
-                        <div class="project-due-date">
-                            Deadline: <span>02 mai 2020</span>
-                        </div>
+                        <div class="project-title"></div>
+                        <div class="project-subtitle"></div>
+                        <div class="project-dealine"></div>
                     </div>
                 </div>
             </div>
@@ -49,14 +43,14 @@
                     <p>
                         Proximo match de code-review
                     </p>
-                    <div class="date">12 maio 2020</div>
+                    <div id="match-date" class="date">12 maio 2020</div>
                     <p>
                         Limite para incrição
                     </p>
-                    <div class="date">02 maio 2020</div>
+                    <div id="join-date" class="date">02 maio 2020</div>
                 </div>
             </div>
-            <button class="join-button">Entrar</button>
+            <button class="join-button">Participar</button>
         </section>
         <section>
             <h2 class="section-title">Trybers no review</h2>
@@ -66,11 +60,7 @@
                     Estes Trybers ja estão no proximo round de code-review <strong>#VqV !</strong>
                 </p>
             </div>
-            <div class="trybers-list">
-                <div class="tryber">
-                    Caio Magalhães
-                </div>
-            </div>
+            <div class="trybers-list"></div>
         </section>
     </div>
     <footer></footer>
@@ -80,9 +70,18 @@
             <div class="user-login">
                 <!-- User login form -->
                 <form action="#" id="new-user-form">
-                    <input type="text" id="name" placeholder="Name" required>
-                    <input type="text" id="slack-username" placeholder="Slack User" required>
-                    <input type="url" id="pull-link" placeholder="Pull Request" required>
+                    <input  type="text" 
+                            id="name" 
+                            placeholder="Name" 
+                            required>
+                    <input  type="text" 
+                            id="slack-username" 
+                            placeholder="Slack User"
+                            required>
+                    <input  type="url" 
+                            id="pull-link" 
+                            placeholder="Pull Request"
+                            required>
                     <button id="confirm-btn">
                         Join Code-review!
                     </button>
@@ -101,7 +100,7 @@
         <div class="botton-sheet sheet-close"></div>
     </div>
 
-    <!-- Firebase integration -->
+    <!-- Firebase integration - DONT CHANGE -->
     <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/7.14.3/firebase-app.js"></script>
 
