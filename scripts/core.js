@@ -8,7 +8,7 @@ let project;
 const setAppSettings = async () => {
   const firestore = firebase.firestore();
 
-  const settings = await firestore.collection('core-settings')
+  await firestore.collection('core-settings')
     .get()
     .then((querySnapshot) => {
       querySnapshot.forEach((doc) => {
@@ -20,11 +20,11 @@ const setAppSettings = async () => {
     .catch((error) => {
       alert('Error getting documents: ', error);
     });
-    // Check if settings are applied
+  // Check if settings are applied
   if (actualProject) {
     // Get project informations
     const projectRef = firestore.collection('review-users');
-    projectRef.get()
+    await projectRef.get()
       .then((querySnapshot) => {
         querySnapshot.forEach((doc) => {
           if (doc.id === actualProject) {
@@ -36,7 +36,6 @@ const setAppSettings = async () => {
               'review-subscription-end': doc.data()['review-subscription-end'],
             };
           }
-          console.log(project);
         });
       });
     return true;
@@ -126,11 +125,20 @@ const createUser = async (form) => {
   }
 };
 
+const updateProjectDetails = (project) => {
+  document.querySelector('.project-title').innerHTML = `${project['project-name']} <span>Project</span>`;
+  document.querySelector('.project-subtitle').innerHTML = project['project-detail'];
+  document.querySelector('.project-dealine').innerHTML = `Deadline: <span>${project['project-end']}</span>`;
+  document.querySelector('#match-date').innerHTML = project['review-match-date'];
+  document.querySelector('#join-date').innerHTML = project['review-subscription-end'];
+};
+
 const initApp = async () => {
   // Get app settings on app start
   const appSettings = await setAppSettings();
   // If settings seted get users
   if (appSettings) {
+    updateProjectDetails(project);
     getReviewUsers()
       .then((users) => {
         users.forEach((user) => {
