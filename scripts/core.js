@@ -153,7 +153,7 @@ window.onload = () => {
   const joinBtn = document.querySelector('.join-button');
   const newUserForm = document.querySelector('#new-user-form');
 
-  initApp();
+  // initApp();
 
   joinBtn.addEventListener('click', () => {
     showBottonSheet();

@@ -242,12 +242,37 @@ label {
   flex-flow: column;
 }
 
+.trybers-list {
+  display: flex;
+  flex-flow: column;
+}
+
 .trybers-list .tryber {
   background-color: rgba(32, 33, 36, 0.97);
   border-radius: 10px;
   margin: 10px 0;
-  padding: 10px;
-  text-align: center;
+  padding: 10px 15px;
+  display: flex;
+  align-items: center;
+}
+
+.tryber .tryber-name {
+  float: left;
+  font-size: 1.5em;
+  flex: 1;
+  text-align: left;
+}
+
+.tryber .tryber-pullrequest button {
+  font-size: 10px;
+  padding: 5px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.tryber .tryber-pullrequest img {
+  width: 24px;
 }
 
 .overlay {
