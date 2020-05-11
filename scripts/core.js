@@ -93,12 +93,23 @@ const putUserOnLinst = (user) => {
   tryberElement.classList.add('tryber');
   const tryberName = document.createElement('div');
   tryberName.classList.add('tryber-name');
+  const pullLinkBtn = document.createElement('button');
+  pullLinkBtn.classList.add('pull-link-btn');
+
 
   tryberName.textContent = user.name;
   tryberElement.appendChild(tryberName);
 
+  pullLinkBtn.innerHTML = '<img src="./imgs/pull-request.png" alt="Pull Request Icon">';
+  pullLinkBtn.addEventListener('click', () => {
+    window.location.href = user.pullLink;
+  });
+  tryberElement.appendChild(pullLinkBtn);
+
+
   const trybersList = document.querySelector('.trybers-list');
   trybersList.insertBefore(tryberElement, trybersList.firstChild);
+
 };
 
 const createUser = async (form) => {
@@ -153,7 +164,7 @@ window.onload = () => {
   const joinBtn = document.querySelector('.join-button');
   const newUserForm = document.querySelector('#new-user-form');
 
-  // initApp();
+  initApp();
 
   joinBtn.addEventListener('click', () => {
     showBottonSheet();

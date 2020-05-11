@@ -5,7 +5,7 @@
 }
 
 body {
-  background-color: rgba(32, 33, 36, 0.97);
+  background-color: rgba(39, 40, 43, 0.97);
   color: white;
   font-family: Open Sans, sans-serif;
   font-size: 15px;
@@ -87,7 +87,7 @@ header {
   position: fixed;
   top: 0;
   width: 100%;
-  z-index: 999;
+  z-index: 7;
 }
 
 header .logo {
@@ -263,7 +263,7 @@ label {
   text-align: left;
 }
 
-.tryber .tryber-pullrequest button {
+.tryber .pull-link-btn {
   font-size: 10px;
   padding: 5px 20px;
   display: flex;
@@ -271,7 +271,7 @@ label {
   align-items: center;
 }
 
-.tryber .tryber-pullrequest img {
+.tryber .pull-link-btn > img {
   width: 24px;
 }
 
@@ -366,6 +366,11 @@ label {
   to {
     transform: rotate(0deg);
   }
+}
+
+footer {
+  width: 100%;
+  height: 80px;
 }
 
 .hidden {
