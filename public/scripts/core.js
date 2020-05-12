@@ -90,13 +90,20 @@ const storeUser = async (data) => {
 
 const showBottonSheet = () => {
   const sheetElements = document.querySelectorAll('.botton-sheet');
-  const sheetClose = document.querySelector('.sheet-close');
+  const sheetCloseOverlay = document.querySelector('.sheet-close');
+  const sheetCloseBtn = document.querySelector('#close-btn');
   // Active the botton sheet and its overlays
   sheetElements.forEach((element) => {
     element.classList.add('is-active');
   });
   // Create a event on the overlay to close the botton sheet
-  sheetClose.addEventListener('click', () => {
+  sheetCloseOverlay.addEventListener('click', () => {
+    sheetElements.forEach((element) => {
+      element.classList.remove('is-active');
+    });
+  });
+
+  sheetCloseBtn.addEventListener('click', () => {
     sheetElements.forEach((element) => {
       element.classList.remove('is-active');
     });
