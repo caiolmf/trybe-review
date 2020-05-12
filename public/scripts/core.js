@@ -44,11 +44,25 @@ const setAppSettings = async () => {
   return false;
 };
 
+const checkRoundMatch = async (project) => {
+  const firestore = firebase.firestore();
+
+  const matchRef = firestore.collection('code-review').doc(project);
+  const matchStatus = await matchRef.get()
+    .then((querySnapshot) => {
+      if (querySnapshot.data()) {
+        return querySnapshot.data()['match-made'];
+      }
+      return false;
+    });
+  return matchStatus;
+};
+
 const getReviewUsers = async () => {
   const users = [];
   const firestore = firebase.firestore();
   const usersRef = firestore.collection('review-users').doc(actualProject).collection('users');
-  const result = await usersRef.get()
+  await usersRef.get()
     .then((querySnapshot) => {
       querySnapshot.forEach((doc) => {
         users.push(doc.data());
@@ -60,6 +74,7 @@ const getReviewUsers = async () => {
   if (users.length > 0) {
     return users;
   }
+  return false;
 };
 
 const storeUser = async (data) => {
@@ -109,7 +124,6 @@ const putUserOnLinst = (user) => {
 
   const trybersList = document.querySelector('.trybers-list');
   trybersList.insertBefore(tryberElement, trybersList.firstChild);
-
 };
 
 const createUser = async (form) => {
@@ -149,22 +163,29 @@ const initApp = async () => {
   const appSettings = await setAppSettings();
   // If settings seted get users
   if (appSettings) {
-    updateProjectDetails(project);
-    getReviewUsers()
-      .then((users) => {
-        users.forEach((user) => {
-          // For each user found put user o homepage list
-          putUserOnLinst(user);
+    const matchStatus = await checkRoundMatch(actualProject);
+    if (!matchStatus) {
+      updateProjectDetails(project);
+      document.querySelector('.loader').classList.add('hidden');
+      document.querySelector('.project-card').classList.add('animate__animated', 'animate__bounceIn');
+      getReviewUsers()
+        .then((users) => {
+          users.forEach((user) => {
+            // For each user found put user o homepage list
+            putUserOnLinst(user);
+          });
         });
-      });
+    } else {
+      window.location.replace('/matchs.html');
+    }
   }
 };
 
 window.onload = () => {
+  initApp();
+
   const joinBtn = document.querySelector('.join-button');
   const newUserForm = document.querySelector('#new-user-form');
-
-  initApp();
 
   joinBtn.addEventListener('click', () => {
     showBottonSheet();
