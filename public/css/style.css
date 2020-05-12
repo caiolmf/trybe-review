@@ -201,6 +201,7 @@ section .join-button > a {
   flex-flow: column;
   flex: 1;
   padding: 0 15px;
+  justify-content: center;
 }
 
 .project-card .title-container > div {
@@ -254,6 +255,7 @@ label {
   padding: 10px 15px;
   display: flex;
   align-items: center;
+  height: 50px;
 }
 
 .tryber .tryber-name {
@@ -273,6 +275,34 @@ label {
 
 .tryber .pull-link-btn > img {
   width: 24px;
+}
+
+.search-bar {
+  width: 100%;
+  padding: 10px 0;
+  display: flex;
+  flex-flow: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-bar .icon {
+  position: absolute;
+  color: black;
+  right: 40px;
+  font-size: 37px;
+  margin-bottom: 10px;
+}
+
+.search-bar .match-search {
+  flex: 1;
+}
+
+.matchs-loader {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .match-container {

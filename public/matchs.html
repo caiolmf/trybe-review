@@ -2,13 +2,21 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#232323">
+    <meta   charset="UTF-8">
+    <meta   name="viewport" 
+            content="width=device-width, initial-scale=1.0">
+    <meta   name="theme-color" 
+            content="#232323">
     <title>Trybe Review</title>
 
-    <link rel="stylesheet" href="./css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;800&display=swap" rel="stylesheet">
+    <link   rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css">
+    <link   rel="stylesheet" 
+            href="./css/style.css">
+    <link   href="https://fonts.googleapis.com/icon?family=Material+Icons" 
+            rel="stylesheet">
+    <link   href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;800&display=swap" 
+            rel="stylesheet">
 
     <script src="./scripts/matchs.js"></script>
 </head>
@@ -25,7 +33,7 @@
     <div class="main-container">
         <section>
             <div class="project-details">
-                <div class="project-card z-depth-2">
+                <div class="project-card z-depth-2 animate__animated animate__bounceIn">
                     <img src="./imgs/flag.svg" alt="Ok flag">
                     <div class="title-container">
                         <div class="project-title">
@@ -39,7 +47,23 @@
                 </div>
             </div>
         </section>
+        <div class="matchs-loader">
+            <div class="lds-ellipsis">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
         <section id="matchs">
+            <!-- Search bar | initial state hidden -->
+            <div class="search-bar hidden">
+                <span class="material-icons icon">search</span>
+                <input  type="text" 
+                        id="match-search"
+                        class="match-search"  
+                        placeholder="Procurar"> 
+            </div>
         </section>
     </div>
     <footer>

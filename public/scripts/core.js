@@ -167,6 +167,7 @@ const initApp = async () => {
     if (!matchStatus) {
       updateProjectDetails(project);
       document.querySelector('.loader').classList.add('hidden');
+      document.querySelector('.project-card').classList.add('animate__animated', 'animate__bounceIn');
       getReviewUsers()
         .then((users) => {
           users.forEach((user) => {

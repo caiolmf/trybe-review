@@ -1,5 +1,7 @@
 // Actual project global const
 let actualProject;
+// Round Matchs global object
+let roundMatchs;
 
 const setAppSettings = async () => {
   // Initiate firestore
@@ -66,30 +68,49 @@ const getUsers = async (projects) => {
 
 const showMatch = (match) => {
   const matchElement = `
-    <div class="match-container">
-      <div class="tryber">
-        <div class="tryber-name">
-          ${match.reviewer.name}
-        </div>
+    <div class="tryber">
+      <div class="tryber-name">
+        ${match.reviewer.name}
       </div>
-      <div class="image-container">
-        <img src="./imgs/code-review.png" alt="Code-review icon">
+    </div>
+    <div class="image-container">
+      <img src="./imgs/code-review.png" alt="Code-review icon">
+    </div>
+    <div class="tryber">
+      <div id="dev" class="tryber-name">
+        ${match.dev.name}
       </div>
-      <div class="tryber">
-        <div id="dev" class="tryber-name">
-          ${match.dev.name}
-        </div>
-        <button id="${match.dev.id}" class="pull-link-btn">
-          <img src="./imgs/pull-request.png" alt="Pull Request Icon">
-        </button>
-      </div>
+      <button id="${match.dev.id}" class="pull-link-btn">
+        <img src="./imgs/pull-request.png" alt="Pull Request Icon">
+      </button>
     </div>`;
-  document.querySelector('#matchs').innerHTML = matchElement;
+  const matchContainer = document.createElement('div');
+  matchContainer.classList.add('match-container', 'animate__animated', 'animate__fadeIn');
+  matchContainer.innerHTML = matchElement;
+  document.querySelector('#matchs').appendChild(matchContainer);
 
   const button = document.getElementById(match.dev.id);
   button.addEventListener('click', () => {
     window.location.href = match.dev['pull-link'];
   });
+};
+
+const search = (input, matchs) => {
+  const searchResult = matchs.filter((match) => {
+    return (match.dev.name.toLowerCase().includes(input.toLowerCase())
+      || match.reviewer.name.toLowerCase().includes(input.toLowerCase()));
+  });
+
+  if (searchResult.length > 0) {
+    const visibleMatchs = document.querySelectorAll('.match-container');
+    visibleMatchs.forEach((match) => {
+      match.remove();
+    });
+
+    searchResult.forEach((result) => {
+      showMatch(result);
+    });
+  }
 };
 
 const initApp = async () => {
@@ -106,14 +127,25 @@ const initApp = async () => {
         reviewer,
       };
     });
-
+    document.querySelector('.matchs-loader').classList.add('hidden');
     matchsResult.forEach((match) => {
       showMatch(match);
     });
+
+    roundMatchs = matchsResult;
+    // Enable search of matchs
+    document.querySelector('.search-bar').classList.remove('hidden');
   }
   return false;
 };
 
 window.onload = () => {
   initApp();
+
+  const searchInput = document.querySelector('#match-search');
+  searchInput.addEventListener('input', (e) => {
+    if (e.target.value !== '') {
+      search(e.target.value, roundMatchs);
+    }
+  });
 };
