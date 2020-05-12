@@ -238,6 +238,10 @@ form {
   flex-flow: column;
 }
 
+#confirm-btn {
+  margin-top: 15px;
+}
+
 label {
   display: flex;
   flex-flow: column;
@@ -338,8 +342,8 @@ label {
   bottom: 0;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.22), 0 14px 56px rgba(0, 0, 0, 0.25);
   box-sizing: border-box;
-  height: 300px;
-  padding: 25px 15px;
+  height: 330px;
+  padding: 50px 10px 15px 15px;
   position: fixed;
   transform: translate(0, 100%);
   transition: all 450ms cubic-bezier(0.32, 1, 0.23, 1) 100ms;
@@ -375,6 +379,15 @@ label {
   top: 0;
   transform: scale(1, 1);
 }
+
+.close-icon {
+  color: #ff2121;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+
+.material-icons.md-36 { font-size: 36px; }
 
 .success-msg {
   display: flex;
